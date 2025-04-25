@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}  # O token GITHUB_TOKEN
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/teu-user/simulador-website:latest ./website  # Usando o GHCR como destino
+        run: docker build -t ghcr.io/speedfick/simulador-website:latest ./website  # Usando o GHCR como destino
 
       - name: Push Docker image
-        run: docker push ghcr.io/teu-user/simulador-website:latest  # Empurrando para o GHCR
+        run: docker push ghcr.io/speedfick/simulador-website:latest  # Empurrando para o GHCR

@@ -19,10 +19,10 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t ghcr.io/teu-user/simulador-api:latest ./api
+        run: docker build -t ghcr.io/speedfick/simulador-api:latest ./api
 
       - name: Push Docker image
-        run: docker push ghcr.io/teu-user/simulador-api:latest
+        run: docker push ghcr.io/speedfick/simulador-api:latest
 
       - name: Logout from Docker Hub
         run: docker logout
