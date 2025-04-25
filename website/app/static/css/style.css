@@ -1,0 +1,125 @@
+body {
+    background:#0e0e0e;
+    padding: 0;
+    margin: 0;
+}
+
+#topbar {
+    color:#ffffff;
+    background:#696969;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999999999;
+    padding: 10px 0;
+}
+
+#topbar .row {
+    padding: 0.3rem 0.5rem;
+}
+
+#topbar .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#topbar .datetimeInfo {
+    text-align: right;
+    font-size: 1rem;
+}
+
+#topbar .btnReset {
+    border: 1px solid #ccc;
+    text-align: center;
+    background: #e6e6e6;
+    border-radius: 4px;
+    color: #413e3e;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#topbar .btnReset:hover {
+    background: #d4d4d4;
+}
+
+#sensorMetrics {
+    margin-top: 80px;
+    padding: 20px;
+}
+
+.patient-card {
+    margin-bottom: 20px;
+}
+
+.card {
+    background: #1e1e1e !important;
+    color: #ffffff;
+    border: 1px solid #333;
+    border-radius: 8px;
+}
+
+.card-title {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    font-size: 0.9rem;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.cardborder {
+    border-bottom: 1px solid #333;
+    padding: 10px 0;
+}
+
+.cardborder:last-child {
+    border-bottom: none;
+}
+
+.mediumInfo {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+.bigInfo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: right;
+}
+
+.infopulsacao .bigInfo {
+    color: #00d50a;
+}
+
+.infooxyg .bigInfo {
+    color: #c3e3f1;
+}
+
+.infobatimentocardiacao .bigInfo {
+    color: #e4252d;
+}
+
+.infotemparuta .bigInfo {
+    color: #c3e3f1;
+}
+
+.alert {
+    padding: 5px;
+    font-size: 0.8rem;
+    margin: 2px 0;
+    background-color: rgba(255, 0, 0, 0.2);
+    border: 1px solid #ff0000;
+    color: #ff0000;
+    border-radius: 4px;
+}
+
+.critical {
+    border-color: #ff0000;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+.form-select, .form-control {
+    font-size: 0.9rem;
+    height: 35px;
+} 

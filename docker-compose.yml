@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  api:
+    build: 
+      context: ./api
+    ports:
+      - "5000:5000"
+    depends_on:
+      - minio
+    volumes:
+      - minio:/app/volume
+    networks:
+      - app-network
+
+  sensor:
+    build:
+      context: ./sensor
+    depends_on:
+      - api
+    networks:
+      - app-network
+
+  website:
+    build:
+      context: ./website
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./website/app/static:/app/static
+      - ./website/app/templates:/app/templates
+    networks:
+      - app-network
+
+  minio:
+    image: minio/minio
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data/tables --console-address ":9001"
+    volumes:
+      - minio:/data/tables
+    networks:
+      - app-network
+
+volumes:
+  minio:
+    external: false
+
+networks:
+  app-network:
+    driver: bridge
+  

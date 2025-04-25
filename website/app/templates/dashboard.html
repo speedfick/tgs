@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Vital Monitor</title>
+    
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<div id="topbar">
+    <div class="row">
+        <div class="col-3">
+            <div class="title">
+                <span class="home">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                        <path d="M3 9l9-7 9 7v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </span>&nbsp;Hospital Viseu Dão-Lafões
+            </div>
+        </div>
+        <div class="col-7">
+            <div class="options">
+                <div class="row">
+                    <div class="col-3">
+                        <select class="form-select" id="unidadeFilter">
+                            <option selected value="">Todas Unidades</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <select class="form-select" id="setorFilter">
+                            <option selected value="">Todos Setores</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <select class="form-select" id="quartoFilter">
+                            <option selected value="">Todos Quartos</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" class="form-control" id="searchPatient" placeholder="Buscar paciente...">
+                    </div>
+                    <div class="col-2">
+                        <div class="btnReset mt-1" onclick="resetFilters()">
+                            <svg width="16" height="16" fill="currentColor" class="bi bi-bootstrap-reboot" viewBox="0 0 16 16">
+                                <path d="M1.161 8a6.84 6.84 0 1 0 6.842-6.84.58.58 0 1 1 0-1.16 8 8 0 1 1-6.556 3.412l-.663-.577a.58.58 0 0 1 .227-.997l2.52-.69a.58.58 0 0 1 .728.633l-.332 2.592a.58.58 0 0 1-.956.364l-.643-.56A6.8 6.8 0 0 0 1.16 8z"/>
+                            </svg> Reset
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="datetimeInfo"></div>
+        </div>
+    </div>
+</div>
+
+<div id="sensorMetrics">
+    <div class="row" id="patientCards">
+        <!-- Os cartões serão inseridos aqui dinamicamente -->
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html> 
