@@ -16,8 +16,8 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}  # Usando o nome do usuário do GitHub
-          password: ${{ secrets.GITHUB_TOKEN }}  # O token GITHUB_TOKEN
+          username: speedfick
+          password: ${{ secrets.PAT_GHCR }}
 
       - name: Build Docker image
         run: docker build -t ghcr.io/speedfick/simulador-sensor:latest ./sensor  # Usando o GHCR como destino
