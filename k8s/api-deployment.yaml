@@ -1,26 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api
+  name: simulador-api
+  labels:
+    app: simulador-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api
+      app: simulador-api
   template:
     metadata:
       labels:
-        app: api
+        app: simulador-api
     spec:
       containers:
-        - name: api
-          image: teu-user/simulador-api:latest
+        - name: simulador-api
+          image: ghcr.io/speedfick/simulador-api:latest
           ports:
-            - containerPort: 5000
-          volumeMounts:
-            - name: volume
-              mountPath: /app/volume
-      volumes:
-        - name: volume
-          persistentVolumeClaim:
-            claimName: minio-pvc
+            - containerPort: 8080
