@@ -26,7 +26,7 @@ jobs:
           docker push ghcr.io/${{ github.repository }}/simulador-api:latest
 
       - name: Set up Kubeconfig
-        uses: azure/setup-kubeconfig@v1
+        uses: azure/setup-kubeconfig@v2
         with:
           kubeconfig: ${{ secrets.KUBECONFIG }}
 
