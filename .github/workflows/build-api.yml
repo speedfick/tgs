@@ -1,4 +1,4 @@
-name: Build and Push API Docker Image
+name: Build, Push API Docker Image and Deploy to Kubernetes
 
 on:
   push:
@@ -7,23 +7,30 @@ on:
       - '.github/workflows/build-api.yml'
 
 jobs:
-  build:
+  build_and_deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
-      - name: Login to GitHub Container Registry
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Log in to GitHub Container Registry
         uses: docker/login-action@v2
         with:
-          registry: ghcr.io
-          username: speedfick
-          password: ${{ secrets.PAT_GHCR }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Docker image
-        run: docker build -t ghcr.io/speedfick/simulador-api:latest ./api
+      - name: Build and Push Docker image
+        run: |
+          docker build -t ghcr.io/${{ github.repository }}/simulador-api:latest ./api
+          docker push ghcr.io/${{ github.repository }}/simulador-api:latest
 
-      - name: Push Docker image
-        run: docker push ghcr.io/speedfick/simulador-api:latest
+      - name: Set up Kubeconfig
+        uses: azure/setup-kubeconfig@v1
+        with:
+          kubeconfig: ${{ secrets.KUBECONFIG }}
 
-      - name: Logout from Docker Hub
-        run: docker logout
+      - name: Deploy to Kubernetes
+        run: |
+          kubectl apply -f k8s/simulador-api-deployment.yaml
+          kubectl set image deployment/simulador-api simulador-api=ghcr.io/${{ github.repository }}/simulador-api:latest
