@@ -19,3 +19,5 @@ spec:
           image: ghcr.io/speedfick/simulador-api:latest
           ports:
             - containerPort: 8080
+      imagePullSecrets:
+        - name: ghcr-secret
