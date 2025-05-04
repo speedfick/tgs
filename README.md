@@ -24,6 +24,20 @@ As imagens são construídas e publicadas automaticamente através de **GitHub A
 
 ## 🚀 Como testar localmente
 
+# Minikube
+`https://minikube.sigs.k8s.io/docs/start`
+
+### Iniciar o minikube (servidor kubernetes)
+`minikube start --driver=docker`
+
+### Verificar estado/outros
+`
+minikube start
+minikube stop
+minikube status
+minikube delete
+`
+
 ### 1. (Opcional) Fazer login no GHCR
 
 **Só é necessário se a imagem for privada.**
