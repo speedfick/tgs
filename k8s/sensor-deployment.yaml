@@ -17,3 +17,5 @@ spec:
           image: ghcr.io/speedfick/simulador-sensor:latest
           ports:
             - containerPort: 5000
+      imagePullSecrets:
+        - name: ghcr-secret  # Aqui é onde o Secret de autenticação é adicionado

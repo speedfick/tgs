@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: simulador-api-service
+  name: api-service
 spec:
   selector:
-    app: simulador-api
+    app: api
   ports:
     - protocol: TCP
       port: 8080

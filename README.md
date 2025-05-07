@@ -44,6 +44,7 @@ minikube status
 minikube delete
 `
 
+# Kubernetes (Cluster)
 ### Criação do namespace
 
 `
@@ -73,6 +74,45 @@ kubectl get services
 `
 kubectl get deployments
 `
+
+### Instalar o NGINX - Ingress Controller
+
+`
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+`
+
+### Verificar o Status do Ingress Controller
+
+`
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+`
+
+### Verificar o Status do Ingress Controller
+
+`
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+`
+
+### Testar o serviço diretamente (sem Ingress)
+
+`
+kubectl port-forward svc/website-service 8081:80
+`
+
+### Testar o serviço diretamente (com Ingress)
+`
+kubectl port-forward svc/ingress-nginx-controller 8080:80 -n ingress-nginx
+`
+
+
+
+
+
+
+
+
+
+
 
 
 
