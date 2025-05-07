@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: website
+  name: website-deployment
 spec:
   replicas: 1
   selector:
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: website
-          image: teu-user/simulador-website:latest
+          image: ghcr.io/speedfick/simulador-website:latest
           ports:
-            - containerPort: 80
+            - containerPort: 8000

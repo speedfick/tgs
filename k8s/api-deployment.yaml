@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simulador-api
+  name: api-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: simulador-api
+      app: api
   template:
     metadata:
       labels:
-        app: simulador-api
+        app: api
     spec:
       containers:
-        - name: simulador-api
+        - name: api
           image: ghcr.io/speedfick/simulador-api:latest
           ports:
             - containerPort: 8080

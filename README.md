@@ -30,13 +30,51 @@ As imagens são construídas e publicadas automaticamente através de **GitHub A
 ### Iniciar o minikube (servidor kubernetes)
 `minikube start --driver=docker`
 
-### Verificar estado/outros
+### Outros comandos
 `
-minikube start
+minikube start 
+`
+`
 minikube stop
+`
+`
 minikube status
+`
+`
 minikube delete
 `
+
+### Criação do namespace
+
+`
+kubectl create namespace production
+`
+
+### Aplicar ou atualizar recursos no Kubernetes / alterações apartir do ficheiro kustomization (-k) 
+
+`
+kubectl apply -k k8s/
+`
+
+### Verificar os pods em execução
+
+`
+kubectl get pods
+`
+
+### Verificar os serviços
+
+`
+kubectl get services
+`
+
+### Verificar os deployments
+
+`
+kubectl get deployments
+`
+
+
 
 ### 1. (Opcional) Fazer login no GHCR
 

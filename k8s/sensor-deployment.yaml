@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sensor
+  name: sensor-deployment
 spec:
   replicas: 1
   selector:
@@ -14,4 +14,6 @@ spec:
     spec:
       containers:
         - name: sensor
-          image: teu-user/simulador-sensor:latest
+          image: ghcr.io/speedfick/simulador-sensor:latest
+          ports:
+            - containerPort: 5000
