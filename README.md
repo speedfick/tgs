@@ -51,10 +51,15 @@ minikube delete
 kubectl create namespace production
 `
 
-### Aplicar ou atualizar recursos no Kubernetes / alterações apartir do ficheiro kustomization (-k) 
+### Aplicar ou atualizar recursos no Kubernetes / alterações apartir do ficheiro kustomization (-k)
 
 `
 kubectl apply -k k8s/
+`
+### Apagar recursos no Kubernetes / alterações apartir do ficheiro kustomization (-k)
+
+`
+kubectl delete -k ./k8s
 `
 
 ### Verificar os pods em execução

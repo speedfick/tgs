@@ -6,3 +6,6 @@ resources:
   - website-deployment.yaml
   - website-service.yaml
   - website-ingress.yaml
+  - minio-deployment.yaml
+  - minio-service.yaml
+  - minio-pvc.yaml
