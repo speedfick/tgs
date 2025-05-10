@@ -23,8 +23,9 @@ spec:
               value: minioadmin
             - name: MINIO_ROOT_PASSWORD
               value: minioadmin
+            - name: MINIO_CONSOLE_ADDRESS
+              value: ":9001"
           ports:
-            - containerPort: 9000
             - containerPort: 9001
           volumeMounts:
             - name: minio-storage
