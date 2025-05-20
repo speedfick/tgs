@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sensor-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sensor
+  template:
+    metadata:
+      labels:
+        app: sensor
+    spec:
+      containers:
+        - name: sensor
+          image: ghcr.io/speedfick/simulador-sensor:latest
+          ports:
+            - containerPort: 5000
+      imagePullSecrets:
+        - name: ghcr-secret  # Aqui é onde o Secret de autenticação é adicionado
