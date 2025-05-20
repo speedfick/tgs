@@ -22,7 +22,33 @@ As imagens são construídas e publicadas automaticamente através de **GitHub A
 
 ---
 
-## 🚀 Como testar localmente
+
+### Fazer build das imagens dos diferentes serviços
+
+`
+docker build -t ghcr.io/speedfick/website:latest ./website
+`
+`
+docker build -t ghcr.io/speedfick/sensor:latest ./sensor
+`
+`
+docker build -t ghcr.io/speedfick/api:latest ./api
+`
+`
+
+### Fazer push das imagens dos diferentes serviços para o ghcr
+
+`
+docker push ghcr.io/speedfick/api:latest
+`
+`
+docker push ghcr.io/speedfick/sensor:latest
+`
+`
+docker push ghcr.io/speedfick/website:latest
+`
+
+## 🚀
 
 # Minikube
 `https://minikube.sigs.k8s.io/docs/start`
@@ -52,14 +78,15 @@ kubectl create namespace production
 `
 
 ### Aplicar ou atualizar recursos no Kubernetes / alterações apartir do ficheiro kustomization (-k)
+### Dentro da respetiva pasta
 
 `
-kubectl apply -k k8s/
+kubectl apply -k 
 `
 ### Apagar recursos no Kubernetes / alterações apartir do ficheiro kustomization (-k)
-
+### Dentro da respetiva pasta 
 `
-kubectl delete -k ./k8s
+kubectl delete -k .
 `
 
 ### Verificar os pods em execução
@@ -108,45 +135,3 @@ kubectl port-forward svc/website-service 8081:80
 `
 kubectl port-forward svc/ingress-nginx-controller 8080:80 -n ingress-nginx
 `
-
-
-### Fazer build das imagens dos diferentes serviços
-
-`
-docker build -t ghcr.io/speedfick/website:latest ./website
-docker build -t ghcr.io/speedfick/sensor:latest ./sensor
-docker build -t ghcr.io/speedfick/api:latest ./api
-`
-
-### Fazer push das imagens dos diferentes serviços para o ghcr
-
-`
-docker push ghcr.io/speedfick/api:latest
-docker push ghcr.io/speedfick/sensor:latest
-docker push ghcr.io/speedfick/website:latest
-`
-
-
-
-
-### 1. (Opcional) Fazer login no GHCR
-
-**Só é necessário se a imagem for privada.**
-
-```bash
-echo $PAT_GHCR | docker login ghcr.io -u speedfick --password-stdin
-
-2. Fazer Pull das Imagens
-docker pull ghcr.io/speedfick/simulador-api:latest
-docker pull ghcr.io/speedfick/simulador-sensor:latest
-docker pull ghcr.io/speedfick/simulador-website:latest
-
-3. Correr os containers localmente
-
-API ->    docker run --rm -it -p 8080:8080 ghcr.io/speedfick/simulador-api:latest
-Website ->   docker run --rm -it -p 3000:80 ghcr.io/speedfick/simulador-website:latest
-Sensor ->    docker run --rm -it -p 8081:8081 ghcr.io/speedfick/simulador-sensor:latest
-
-Aceder à API ->   http://localhost:8080
-Aceder ao sensor ->   http://localhost:8081
-Aceder ao website ->   http://localhost:3000

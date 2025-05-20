@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: minha-api
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/speedfick/tgs
+    targetRevision: main
+    path: k8s/api
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated: {}
